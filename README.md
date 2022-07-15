@@ -1,62 +1,57 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# TO-DO-LIST
 
-> Description the project.
 
+This is an app for a TO-D)-LIST.  This app can allow a user  add, remove and edit tasks and all changes stored in local storage
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- CSS
+- javaScript
+- webpack 
 
 ## Live Demo (if available)
 
 [Live Demo Link](https://livedemo.com)
-
 
 ## Getting Started
 
 **This is an example of how you may give instructions on setting up your project locally.**
 **Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
-
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
-
-### Setup
+Basic HTML
+Basic CSS
+Basic javaScript
+Webpack Knowledge
 
 ### Install
+Switch to Awesome-books-ES6 directory
+
+### Setup
+git clone https://github.com/eudondian/Awesome-books-ES6.git in your local directory.
 
 ### Usage
-
-### Run tests
-
-### Deployment
-
-
+Click live server to open index.html in the browser
 
 ## Authors
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/eudondian)
+- Twitter: [@twitterhandle](https://twitter.com/eudondian)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/esther-udondian-186849119/)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the issues page
 
 ## Show your support
 
