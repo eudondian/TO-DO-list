@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>My Todo List</h1>
+    <div id="todo-list">
+      <form action="form">
+        <div class="form-div">
+          <input type="text" class="todo-input" value="Demo" />
+          <button class="todo-button" type="submit">
+            <i class="uil uil-rotate-360"></i>
+          </button>
+        </div>
+        <div class="form-div">
+          <input
+            type="text"
+            class="add-todo"
+            placeholder="Add to your list..."
+          />
+        </div>
+        <div class="clear-button"></div>
+      </form>
+      <div class="todo-container">
+        <ul class="todo-list"></ul>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
