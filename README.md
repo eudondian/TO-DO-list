@@ -28,7 +28,6 @@ Basic HTML
 Basic CSS
 Basic javaScript
 Webpack Knowledge
-Live server
 
 ### Install
 
