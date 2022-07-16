@@ -54,7 +54,8 @@ form button {
 }
 
 .remove-button,
-.completed-button {
+.completed-button,
+.edit-button {
   background: rgb(147, 147, 147);
   color: black;
   border: none;
@@ -64,7 +65,8 @@ form button {
 }
 
 .uil-minus-circle,
-.uil-check-circle {
+.uil-check-circle,
+.uil-edit {
   pointer-events: none;
 }
 

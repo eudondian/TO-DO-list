@@ -1,20 +1,48 @@
 // eslint-disable-next-line import/extensions
 import { AddStore } from './modules/addstore.js';
+// eslint-disable-next-line import/extensions
 import {
   addToLocalStorage,
   removeFromLocalStorage,
   // eslint-disable-next-line import/extensions
 } from './modules/storesave.js';
+import './styles/correct.css';
 
 const todoInput = document.querySelector('.todo-input');
 const addButton = document.querySelector('.add-button');
 const todoMenu = document.querySelector('.todo-menu');
-const filterOption = document.querySelector('.filter-todo');
-
-// eslint-disable-next-line no-use-before-define
-filterOption.addEventListener('click', filterTodo);
+const filterTasks = document.querySelector('.filter-tasks');
+const clearButton = document.querySelector('.clear-button');
+const newTask = document.createElement('li');
 
 document.addEventListener('DOMContentLoaded', AddStore);
+
+filterTasks.addEventListener('click', (e) => {
+  const tasks = document.querySelectorAll('.todo');
+  tasks.forEach((task) => {
+    // eslint-disable-next-line default-case
+    switch (e.target.value) {
+      case 'all':
+        task.style.display = 'block';
+        break;
+      case 'completed':
+        if (task.classList.contains('completed')) {
+          task.style.display = 'block';
+        } else {
+          task.style.display = 'none';
+        }
+    }
+  });
+});
+
+clearButton.addEventListener('click', () => {
+  const tasks = document.querySelectorAll('.todo');
+  tasks.forEach((task) => {
+    if (task.classList.contains('completed')) {
+      task.style.display = 'none';
+    }
+  });
+});
 
 // Function to Add Tasks
 addButton.addEventListener('click', (e) => {
@@ -25,8 +53,10 @@ addButton.addEventListener('click', (e) => {
   todoDiv.classList.add('todo');
 
   // Create New li
-  const newTask = document.createElement('li');
+  // const newTask = document.createElement('li')
   newTask.innerText = todoInput.value;
+
+  todoInput.setAttribute('readonly', 'readonly');
 
   newTask.classList.add('todo-item');
 
@@ -51,34 +81,17 @@ addButton.addEventListener('click', (e) => {
   // Add Remove button to Todo Div
   todoDiv.appendChild(removeButton);
 
+  // Button to Edit Tasks
+  const editButton = document.createElement('button');
+  editButton.classList.add('edit-button');
+  editButton.innerHTML = '<i class="uil uil-edit"></i>';
+  todoDiv.appendChild(editButton);
+
+  todoInput.setAttribute('readonly', 'readonly');
+
   // Add todoDiv to todoMenu
   todoMenu.appendChild(todoDiv);
 });
-
-function filterTodo(e) {
-  const todos = todoMenu.children[0];
-  todos.forEac((todo) => {
-    // eslint-disable-next-line default-case
-    switch (e.target.value) {
-      case 'all':
-        todo.style.display = 'flex';
-        break;
-      case 'completed':
-        if (todo.classList.contains('completed')) {
-          todo.style.display = 'flex';
-        } else {
-          todo.style.display = 'none';
-        }
-        break;
-      case 'uncompleted':
-        if (!todo.classList.contains('completed')) {
-          todo.style.display = 'flex';
-        } else {
-          todo.style.display = 'none';
-        }
-    }
-  });
-}
 
 // Delete Tasks
 todoMenu.addEventListener('click', (e) => {
@@ -94,6 +107,20 @@ todoMenu.addEventListener('click', (e) => {
     const todo = task.parentElement;
     todo.classList.toggle('completed');
   }
+
+  if (task.classList[0] === 'edit-button') {
+    // const todo = task.parentElement;
+
+    addButton.innerHTML = '<i class="uil uil-save"></i>';
+    todoInput.focus();
+    todoInput.removeAttribute('readonly');
+    addButton.addEventListener('click', () => {
+      newTask.innerText = todoInput.value;
+    });
+  } else {
+    todoInput.setAttribute('readonly', 'readonly');
+  }
 });
 
 // Save Tasks to Local Storage
+addToLocalStorage();
