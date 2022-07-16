@@ -57,7 +57,7 @@ addButton.addEventListener('click', (e) => {
 
 function filterTodo(e) {
   const todos = todoMenu.children[0];
-  todos.forEach((todo) => {
+  todos.forEac((todo) => {
     // eslint-disable-next-line default-case
     switch (e.target.value) {
       case 'all':
