@@ -97,4 +97,3 @@ todoMenu.addEventListener('click', (e) => {
 });
 
 // Save Tasks to Local Storage
-addToLocalStorage();
