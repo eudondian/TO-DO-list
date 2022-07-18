@@ -13,7 +13,7 @@ This is an app for a TO-DO-LIST. This app can allow a user add, remove and edit 
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link]( https://eudondian.github.io/TO-DO-list/)
 
 ## Getting Started
 
