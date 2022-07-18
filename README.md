@@ -35,7 +35,7 @@ Switch to Awesome-books-ES6 directory
 
 ### Setup
 
-git clone https://github.com/eudondian/Awesome-books-ES6.git in your local directory.
+git clone https://github.com/eudondian/TO-DO-list.git in your local directory.
 
 ### Usage
 
