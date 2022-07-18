@@ -2,7 +2,7 @@
 
 # TO-DO-LIST
 
-This is an app for a TO-D)-LIST. This app can allow a user add, remove and edit tasks and all changes stored in local storage
+This is an app for a TO-DO-LIST. This app can allow a user add, remove and edit tasks and all changes stored in local storage
 
 ## Built With
 
