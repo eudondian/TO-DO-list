@@ -53,11 +53,8 @@ addButton.addEventListener('click', (e) => {
   todoDiv.classList.add('todo');
 
   // Create New li
-  // const newTask = document.createElement('li')
+  const newTask = document.createElement('li');
   newTask.innerText = todoInput.value;
-
-  todoInput.setAttribute('readonly', 'readonly');
-
   newTask.classList.add('todo-item');
 
   // Add the new li to todoDiv
@@ -86,8 +83,6 @@ addButton.addEventListener('click', (e) => {
   editButton.classList.add('edit-button');
   editButton.innerHTML = '<i class="uil uil-edit"></i>';
   todoDiv.appendChild(editButton);
-
-  todoInput.setAttribute('readonly', 'readonly');
 
   // Add todoDiv to todoMenu
   todoMenu.appendChild(todoDiv);
@@ -118,7 +113,7 @@ todoMenu.addEventListener('click', (e) => {
       newTask.innerText = todoInput.value;
     });
   } else {
-    todoInput.setAttribute('readonly', 'readonly');
+    // todoInput.setAttribute('readonly', 'readonly');
   }
 });
 
