@@ -1,41 +1,121 @@
-// eslint-disable-next-line no-unused-vars
-const tasks = [
-  {
-    description: 'center a div',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'build a submit button',
-    completed: true,
-    index: 2,
-  },
-  {
-    description: 'build a form',
-    completed: false,
-    index: 3,
-  },
-];
+// eslint-disable-next-line import/extensions
+import { AddStore } from './modules/addstore.js';
+import {
+  addToLocalStorage,
+  removeFromLocalStorage,
+  // eslint-disable-next-line import/extensions
+} from './modules/storesave.js';
+import './styles/style.css';
 
-// eslint-disable-next-line no-unused-vars
 const todoInput = document.querySelector('.todo-input');
-const todoButton = document.querySelector('.todo-button');
-const todoList = document.querySelector('#todo-list');
-const clearButtonDiv = document.querySelector('.clear-button');
+const addButton = document.querySelector('.add-button');
+const todoMenu = document.querySelector('.todo-menu');
+const filterTasks = document.querySelector('.filter-tasks');
+const clearButton = document.querySelector('.clear-button');
+const newTask = document.createElement('li');
 
-const addTodo = (e) => {
+document.addEventListener('DOMContentLoaded', AddStore);
+
+filterTasks.addEventListener('click', (e) => {
+  const tasks = document.querySelectorAll('.todo');
+  tasks.forEach((task) => {
+    switch (e.target.value) {
+      case 'all':
+        task.style.display = 'block';
+        break;
+      case 'completed':
+        if (task.classList.contains('completed')) {
+          task.style.display = 'block';
+        }
+      // eslint-disable-next-line no-fallthrough
+      default: {
+        task.style.display = 'none';
+      }
+    }
+  });
+});
+
+clearButton.addEventListener('click', () => {
+  const tasks = document.querySelectorAll('.todo');
+  tasks.forEach((task) => {
+    if (task.classList.contains('completed')) {
+      task.style.display = 'none';
+    }
+  });
+});
+
+// Function to Add Tasks
+addButton.addEventListener('click', (e) => {
   e.preventDefault();
 
-  // deleteCompleted Button
-  const trashButton = document.createElement('button');
+  // Todo Div
+  const todoDiv = document.createElement('div');
+  todoDiv.classList.add('todo');
 
-  trashButton.innerHTML = '<small>Clear All Completed</small>';
-  trashButton.classList.add('trash-btn');
-  clearButtonDiv.appendChild(trashButton);
+  // Create New li
+  // const newTask = document.createElement('li')
+  newTask.innerText = todoInput.value;
 
-  // Populate the List
-  // eslint-disable-next-line no-undef
-  todoList.appendChild(todoDiv);
-};
+  newTask.classList.add('todo-item');
 
-todoButton.addEventListener('click', addTodo);
+  // Add the new li to todoDiv
+  todoDiv.appendChild(newTask);
+  addToLocalStorage(todoInput.value);
+
+  // Clear Todo Input after adding Tasks
+  todoInput.value = '';
+
+  // Button to handle completed Tasks
+  const completedButton = document.createElement('button');
+  completedButton.innerHTML = '<i class="uil uil-check-circle"></i>';
+  completedButton.classList.add('completed-button');
+  todoDiv.appendChild(completedButton);
+
+  // Button to Remove Tasks
+  const removeButton = document.createElement('button');
+  removeButton.innerHTML = '<i class="uil uil-minus-circle"></i>';
+  removeButton.classList.add('remove-button');
+
+  // Add Remove button to Todo Div
+  todoDiv.appendChild(removeButton);
+
+  // Button to Edit Tasks
+  const editButton = document.createElement('button');
+  editButton.classList.add('edit-button');
+  editButton.innerHTML = '<i class="uil uil-edit"></i>';
+  todoDiv.appendChild(editButton);
+
+  // Add todoDiv to todoMenu
+  todoMenu.appendChild(todoDiv);
+});
+
+// Delete Tasks
+todoMenu.addEventListener('click', (e) => {
+  const task = e.target;
+
+  if (task.classList[0] === 'remove-button') {
+    const todo = task.parentElement;
+    removeFromLocalStorage(todo);
+    todo.remove();
+  }
+
+  if (task.classList[0] === 'completed-button') {
+    const todo = task.parentElement;
+    todo.classList.toggle('completed');
+  }
+
+  if (task.classList[0] === 'edit-button') {
+    addButton.innerHTML = '<i class="uil uil-save"></i>';
+    todoInput.focus();
+    todoInput.removeAttribute('readonly');
+    addButton.addEventListener('click', () => {
+      const edited = task.value;
+      newTask.innerText = todoInput.value;
+      // eslint-disable-next-line no-undef
+      todoDiv.appendChild(edited);
+    });
+  }
+});
+
+// Save Tasks to Local Storage
+addToLocalStorage();
