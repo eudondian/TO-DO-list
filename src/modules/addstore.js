@@ -1,5 +1,6 @@
 const todoInput = document.querySelector('.todo-input');
 const todoMenu = document.querySelector('.todo-menu');
+const refresh = document.querySelector('.demo');
 
 const AddStore = () => {
   let todos;
@@ -37,6 +38,8 @@ const AddStore = () => {
     todoMenu.appendChild(todoDiv);
   });
 };
+
+refresh.addEventListener('click', AddStore);
 
 // eslint-disable-next-line import/prefer-default-export
 export { AddStore };
