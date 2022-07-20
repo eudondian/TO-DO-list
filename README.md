@@ -2,19 +2,18 @@
 
 # TO-DO-LIST
 
-
-This is an app for a TO-D)-LIST.  This app can allow a user  add, remove and edit tasks and all changes stored in local storage
+This is an app for a TO-DO-LIST. This app can allow a user add, remove and edit tasks and all changes stored in local storage
 
 ## Built With
 
 - HTML
 - CSS
 - javaScript
-- webpack 
+- webpack
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link]( https://eudondian.github.io/TO-DO-list/)
 
 ## Getting Started
 
@@ -24,18 +23,22 @@ This is an app for a TO-D)-LIST.  This app can allow a user  add, remove and edi
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+
 Basic HTML
 Basic CSS
 Basic javaScript
 Webpack Knowledge
 
 ### Install
+
 Switch to Awesome-books-ES6 directory
 
 ### Setup
-git clone https://github.com/eudondian/Awesome-books-ES6.git in your local directory.
+
+git clone https://github.com/eudondian/TO-DO-list.git in your local directory.
 
 ### Usage
+
 Click live server to open index.html in the browser
 
 ## Authors
@@ -45,7 +48,6 @@ Click live server to open index.html in the browser
 - GitHub: [@githubhandle](https://github.com/eudondian)
 - Twitter: [@twitterhandle](https://twitter.com/eudondian)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/esther-udondian-186849119/)
-
 
 ## 🤝 Contributing
 
