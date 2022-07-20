@@ -6,7 +6,7 @@ import {
   removeFromLocalStorage,
   // eslint-disable-next-line import/extensions
 } from './modules/storesave.js';
-import './styles/correct.css';
+import './styles/style.css';
 
 const todoInput = document.querySelector('.todo-input');
 const addButton = document.querySelector('.add-button');
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', AddStore);
 filterTasks.addEventListener('click', (e) => {
   const tasks = document.querySelectorAll('.todo');
   tasks.forEach((task) => {
-    // eslint-disable-next-line default-case
     switch (e.target.value) {
       case 'all':
         task.style.display = 'block';
@@ -28,9 +27,11 @@ filterTasks.addEventListener('click', (e) => {
       case 'completed':
         if (task.classList.contains('completed')) {
           task.style.display = 'block';
-        } else {
-          task.style.display = 'none';
         }
+      // eslint-disable-next-line no-fallthrough
+      default: {
+        task.style.display = 'none';
+      }
     }
   });
 });
@@ -53,8 +54,9 @@ addButton.addEventListener('click', (e) => {
   todoDiv.classList.add('todo');
 
   // Create New li
-  const newTask = document.createElement('li');
+  // const newTask = document.createElement('li')
   newTask.innerText = todoInput.value;
+
   newTask.classList.add('todo-item');
 
   // Add the new li to todoDiv
@@ -104,16 +106,15 @@ todoMenu.addEventListener('click', (e) => {
   }
 
   if (task.classList[0] === 'edit-button') {
-    // const todo = task.parentElement;
-
     addButton.innerHTML = '<i class="uil uil-save"></i>';
     todoInput.focus();
     todoInput.removeAttribute('readonly');
     addButton.addEventListener('click', () => {
+      const edited = task.value;
       newTask.innerText = todoInput.value;
+      // eslint-disable-next-line no-undef
+      todoDiv.appendChild(edited);
     });
-  } else {
-    // todoInput.setAttribute('readonly', 'readonly');
   }
 });
 
