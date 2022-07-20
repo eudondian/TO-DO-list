@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/extensions
 import { AddStore } from './modules/addstore.js';
-// eslint-disable-next-line import/extensions
 import {
   addToLocalStorage,
   removeFromLocalStorage,
